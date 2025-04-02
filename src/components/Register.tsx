@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { toast } from 'react-hot-toast';
+// toast import 제거
 import DOMPurify from 'dompurify'; // XSS 방지를 위한 패키지 (실제로는 추가 필요)
 
 // 텍스트 안전하게 처리하는 함수
@@ -87,15 +87,15 @@ const Register = () => {
       await api.register(sanitizedUsername, password, sanitizedBio);
       
       if (register(sanitizedUsername, password, sanitizedBio)) {
-        toast.success('회원가입이 완료되었습니다');
+        // toast.success 제거
         navigate('/login');
       } else {
-        toast.error('이미 존재하는 아이디입니다');
+        // toast.error 제거
         setErrors({ username: '이미 존재하는 아이디입니다.' });
       }
     } catch (error) {
       console.error('회원가입 오류:', error);
-      toast.error('회원가입 중 오류가 발생했습니다');
+      // toast.error 제거
     } finally {
       setIsLoading(false);
     }
