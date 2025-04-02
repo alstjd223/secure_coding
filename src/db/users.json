@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "alstjd23!",
+      "bio": "Site Administrator",
+      "isAdmin": true,
+      "canLogin": true,
+      "balance": 10000000000000
+    }
+  ]
+}
