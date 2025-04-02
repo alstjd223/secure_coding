@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { toast } from 'react-hot-toast';
+// toast import 제거
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -44,16 +44,16 @@ const Login = () => {
       const success = await Promise.resolve(login(username, password));
       
       if (success) {
-        toast.success('로그인되었습니다');
+        // toast 메시지 제거
         navigate('/');
       } else {
         setError('아이디 또는 비밀번호가 올바르지 않습니다.');
-        toast.error('로그인에 실패했습니다');
+        // toast 메시지 제거
       }
     } catch (error) {
       console.error('로그인 오류:', error);
       setError('로그인 중 오류가 발생했습니다. 다시 시도해 주세요.');
-      toast.error('로그인 중 오류가 발생했습니다');
+      // toast 메시지 제거
     } finally {
       setIsLoading(false);
     }
@@ -119,7 +119,7 @@ const Login = () => {
         
         <div className="mt-4 text-center">
           <p className="text-sm text-gray-600">
-            계정이 없으신가요? <a href="/register" className="text-blue-500 hover:text-blue-700">회원가입</a>
+            계정이 없으신가요? <Link to="/register" className="text-blue-500 hover:text-blue-700">회원가입</Link>
           </p>
         </div>
       </div>
